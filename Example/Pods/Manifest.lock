@@ -1,0 +1,19 @@
+PODS:
+  - Kiwi (2.4.0)
+  - ReactiveLevelCache (0.1.0)
+
+DEPENDENCIES:
+  - Kiwi
+  - ReactiveLevelCache (from `../`)
+
+EXTERNAL SOURCES:
+  ReactiveLevelCache:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
+  ReactiveLevelCache: fd68dae1658a637c8b9fc51d48c16b0160004ca8
+
+PODFILE CHECKSUM: 226497272946d7cc6eeae5b0670b53cf1d19ad2c
+
+COCOAPODS: 1.0.1
