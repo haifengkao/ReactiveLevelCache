@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ReactiveLevelCache_Example' do
+  pod 'ReactiveLevelCache', :path => '../'
+
+  target 'ReactiveLevelCache_Tests' do
+    inherit! :search_paths
+
+    pod 'Kiwi'
+  end
+end
