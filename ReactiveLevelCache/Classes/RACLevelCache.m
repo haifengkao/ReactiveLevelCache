@@ -89,9 +89,26 @@ static NSString *AttributesKey = @"attributes";
 {
 }
 
++ (NSError*)errorNotFound
+{
+    static NSError* notFound = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        notFound = [NSError errorWithDomain:@"RACLevelCache" code:1 userInfo:@{NSLocalizedDescriptionKey:@"not in cache"}];
+    });
+    return notFound;
+}
+
 #pragma mark - Reactive Cache Protocol
 - (void)setObject:(id<NSCoding>)object forKey:(NSString *)key
 {
+    if (!key) { return; } // nothing to do
+    if (!object) {
+        // remove the object instead
+        [self remove:key];
+        return;
+    } 
+
     NSData* data = [NSKeyedArchiver archivedDataWithRootObject:object];
     RACLevelItem* item = [[RACLevelItem alloc] init];
     item.attributes = @{NSFileModificationDate: [NSDate date]};
@@ -102,6 +119,9 @@ static NSString *AttributesKey = @"attributes";
 - (RACSignal*)objectForKey:(NSString*)key
 {
     RACLevelItem* item = (self.db)[key];
+    if (!item) {
+        return [RACSignal error:self.class.errorNotFound];
+    } 
     id<NSCoding> object = [NSKeyedUnarchiver unarchiveObjectWithData:item.data];
     return [RACSignal return:object];
 }
@@ -109,6 +129,9 @@ static NSString *AttributesKey = @"attributes";
 - (RACSignal*)objectForKeyExt:(NSString*)key
 {
     RACLevelItem* item = (self.db)[key];
+    if (!item) {
+        return [RACSignal error:self.class.errorNotFound];
+    } 
     id<NSCoding> object = [NSKeyedUnarchiver unarchiveObjectWithData:item.data];
     return [RACSignal return:RACTuplePack(object, item.attributes)];
 }

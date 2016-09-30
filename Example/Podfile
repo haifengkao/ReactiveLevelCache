@@ -6,6 +6,8 @@ target 'ReactiveLevelCache_Example' do
 
   target 'ReactiveLevelCache_Tests' do
     inherit! :search_paths
+    pod 'ReactiveLevelCache', :path => '../'
+    pod 'ReactiveCache', :path => '../../ReactiveCache'
 
     pod 'Kiwi'
   end

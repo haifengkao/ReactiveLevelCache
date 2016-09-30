@@ -8,37 +8,79 @@
 
 // https://github.com/kiwi-bdd/Kiwi
 
+#import "RACLevelCache.h"
+#import "RACTuple.h"
+#import "RACSignal.h"
+
 SPEC_BEGIN(InitialTests)
 
-describe(@"My initial tests", ^{
+describe(@"RACLevelCache", ^{
 
-  context(@"will fail", ^{
-
-      it(@"can do maths", ^{
-          [[@1 should] equal:@2];
-      });
-
-      it(@"can read", ^{
-          [[@"number" should] equal:@"string"];
-      });
+    let(testee, ^{ // Occurs before each enclosed "it"
+        return [[RACLevelCache alloc] initWithName:@"original"];
+    });
+    let(done, ^{ // Occurs before each enclosed "it"
+        return @(0);
+    });
     
-      it(@"will wait and fail", ^{
-          NSObject *object = [[NSObject alloc] init];
-          [[expectFutureValue(object) shouldEventually] receive:@selector(autoContentAccessingProxy)];
-      });
-  });
+    beforeAll(^{ // Occurs once
+    });
+    
+    afterAll(^{ // Occurs once
+    });
+    
+    beforeEach(^{ // Occurs before each enclosed "it"
+        UIImage* img = [[UIImage alloc] init];
+        [testee setObject:img forKey:@"img"];
+    });
+    
+    afterEach(^{ // Occurs after each enclosed "it"
+        [testee removeAll];
+    });
 
-  context(@"will pass", ^{
+    it(@"should not store object with nil key", ^{
+        UIImage* img = [[UIImage alloc] init];
+        [testee setObject:img forKey:nil];
+        done = @(1);
+        [[expectFutureValue(done) shouldEventuallyBeforeTimingOutAfter(2000.0)] beTrue];
+    });
+
+    it(@"should not store nil image to cache", ^{
+        [testee setObject:nil forKey:@"img"];
+        done = @(1);
+        [[expectFutureValue(done) shouldEventuallyBeforeTimingOutAfter(2000.0)] beTrue];
+    });
     
-      it(@"can do maths", ^{
-        [[@1 should] beLessThan:@23];
-      });
+    it(@"should get the image from cache", ^{
+        RACSignal* signal = [testee objectForKey:@"img"];
+        [signal subscribeNext:^(UIImage* image) {
+            [[image shouldNot] beNil];
+            done = @(1);
+        }];
+        [[expectFutureValue(done) shouldEventuallyBeforeTimingOutAfter(2000.0)] beTrue];
+    });
+
+    it(@"should get file attributes from cache", ^{
+        RACSignal* signal = [testee objectForKeyExt:@"img"];
+        [signal subscribeNext:^(RACTuple* tuple) {
+            RACTupleUnpack(UIImage* image, NSDictionary* attributes) = tuple;
+            [[image shouldNot] beNil];
+            [[attributes[NSFileModificationDate] shouldNot] beNil];
+            done = @(1);
+        }];
+        [[expectFutureValue(done) shouldEventuallyBeforeTimingOutAfter(2000.0)] beTrue];
+    });
     
-      it(@"can read", ^{
-          [[@"team" shouldNot] containString:@"I"];
-      });  
-  });
-  
+    it(@"should remove the image from cache", ^{
+        [testee remove:@"img"];
+        RACSignal* signal = [testee objectForKey:@"img"];
+        [signal subscribeNext:^(UIImage* image) {
+            NSAssert(NO, @"should not return anything");
+        } error:^(NSError* error) {
+            done = @(1);
+        }];
+        [[expectFutureValue(done) shouldEventuallyBeforeTimingOutAfter(2000.0)] beTrue];
+    });
 });
 
 SPEC_END

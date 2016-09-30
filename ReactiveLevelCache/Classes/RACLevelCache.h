@@ -10,6 +10,10 @@
 #import "RACCache.h"
 
 @interface RACLevelCache : NSObject<RACCache>
+
+- (instancetype)initWithName:(NSString*) name;
+
+#pragma mark - Reactive Cache Protocol
 // get the object from the cache
 - (RACSignal*)objectForKey:(NSString *)key;
 // put the object in the cache
@@ -22,6 +26,4 @@
 // return the cache size in bytes
 - (double)cacheSize;
 
-// return tuple (NSData, properties)
-- (RACSignal*)objectForKeyExt:(NSString *)key;
 @end
