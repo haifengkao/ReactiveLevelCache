@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "summary": "A short description of ReactiveLevelCache.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/ReactiveLevelCache",
+  "homepage": "https://github.com/haifengkao/ReactiveLevelCache",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,11 +12,22 @@
     "Hai Feng Kao": "haifeng@cocoaspice.in"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/ReactiveLevelCache.git",
+    "git": "https://github.com/haifengkao/ReactiveLevelCache.git",
     "tag": "0.1.0"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "ReactiveLevelCache/Classes/**/*"
+  "source_files": "ReactiveLevelCache/Classes/**/*",
+  "dependencies": {
+    "ReactiveCache": [
+
+    ],
+    "StandardPaths": [
+
+    ],
+    "Objective-LevelDB": [
+
+    ]
+  }
 }

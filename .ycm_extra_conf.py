@@ -154,14 +154,18 @@ def IncludeFlagsOfFrameworkHeaders( flags, working_directory ):
 
     # iterate through all frameworks folders /Debug-iphonesimulator/xxx/xxx.framework
     for frameworkFolder in os.listdir(projectPath):
-      frameworkPath = os.path.join('', *[projectPath, frameworkFolder, frameworkFolder+'.framework'])
+      frameworkPath = os.path.join('', projectPath, frameworkFolder)
       # framwork folder '-F/Debug-iphonesimulator/<framework-name>'
       # solve <Kiwi/KiwiConfigurations.h> not found problem
-      new_flags.append('-F'+os.path.join('', projectPath, frameworkFolder))
-      if os.path.exists(frameworkPath):
-        # include headers '-I/Debug-iphonesimulator/xxx/xxx.framework/Headers'
-        # allow you to use #import "Kiwi.h". NOT REQUIRED, but I am too lazy to change existing codes
-        new_flags.append('-I' + os.path.join('', frameworkPath, 'Headers'))
+      new_flags.append('-F'+frameworkPath)
+
+      # the framework name might be different than folder name
+      # we need to iterate all frameworks
+      for frameworkFile in os.listdir(frameworkPath):
+        if frameworkFile.endswith('framework'):
+          # include headers '-I/Debug-iphonesimulator/xxx/yyy.framework/Headers'
+          # allow you to use #import "Kiwi.h". NOT REQUIRED, but I am too lazy to change existing codes
+          new_flags.append('-I' + os.path.join('', frameworkPath, frameworkFile,'Headers'))
 
   return new_flags
 

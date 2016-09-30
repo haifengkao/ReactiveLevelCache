@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "50B3877B5FB36D72D8F3D34C17C16BA8E20D1614",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E05F1F6C94340956BC7F80BD6BD7BA6507CE6E55" : 0,
+    "50B3877B5FB36D72D8F3D34C17C16BA8E20D1614" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "342FC2EF-AF08-4159-A726-E1F599F9F029",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E05F1F6C94340956BC7F80BD6BD7BA6507CE6E55" : "ReactiveCache\/",
+    "50B3877B5FB36D72D8F3D34C17C16BA8E20D1614" : "ReactiveLevelCache\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ReactiveLevelCache",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Example\/ReactiveLevelCache.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/haifengkao\/ReactiveLevelCache.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "50B3877B5FB36D72D8F3D34C17C16BA8E20D1614"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/haifengkao\/ReactiveCache.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E05F1F6C94340956BC7F80BD6BD7BA6507CE6E55"
+    }
+  ]
+}
