@@ -116,7 +116,7 @@ static NSString *AttributesKey = @"attributes";
 - (RACSignal*)objectForKey:(NSString*)key
 {
     NSParameterAssert(key);
-    if (!key) { return; } // nothing to do
+    if (!key) { return [[self class] errorNotFound]; } // nothing to do
 
     RACLevelItem* item = (self.db)[key];
     if (!item) {
@@ -129,7 +129,7 @@ static NSString *AttributesKey = @"attributes";
 - (RACSignal*)objectForKeyExt:(NSString*)key
 {
     NSParameterAssert(key);
-    if (!key) { return; } // nothing to do
+    if (!key) { return [[self class] errorNotFound]; } // nothing to do
 
     RACLevelItem* item = (self.db)[key];
     if (!item) {
