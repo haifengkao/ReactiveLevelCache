@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RACCache.h"
+
+@import ReactiveCache;
+@class RACSignal;
 
 @interface RACLevelCache : NSObject<RACCache>
-
 - (instancetype)initWithName:(NSString*) name;
 
 #pragma mark - Reactive Cache Protocol

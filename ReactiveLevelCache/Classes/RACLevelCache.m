@@ -11,6 +11,7 @@
 #import "RACTuple.h"
 #import "LevelDB.h"
 #import "StandardPaths.h"
+#import "RACCache.h"
 
 #ifndef SAFE_CAST
 #define SAFE_CAST(Object, Type) (Type *)safe_cast_helper(Object, [Type class])
@@ -116,7 +117,7 @@ static NSString *AttributesKey = @"attributes";
 - (RACSignal*)objectForKey:(NSString*)key
 {
     NSParameterAssert(key);
-    if (!key) { return [[self class] errorNotFound]; } // nothing to do
+    if (!key) { return [RACSignal error:[[self class] errorNotFound]]; } // nothing to do
 
     RACLevelItem* item = (self.db)[key];
     if (!item) {
@@ -129,7 +130,7 @@ static NSString *AttributesKey = @"attributes";
 - (RACSignal*)objectForKeyExt:(NSString*)key
 {
     NSParameterAssert(key);
-    if (!key) { return [[self class] errorNotFound]; } // nothing to do
+    if (!key) { return [RACSignal error:[[self class] errorNotFound]]; } // nothing to do
 
     RACLevelItem* item = (self.db)[key];
     if (!item) {
