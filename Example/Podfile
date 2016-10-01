@@ -2,12 +2,10 @@ use_frameworks!
 
 target 'ReactiveLevelCache_Example' do
   pod 'ReactiveLevelCache', :path => '../'
-  pod 'ReactiveCache', :path => '../../ReactiveCache'
 
   target 'ReactiveLevelCache_Tests' do
     inherit! :search_paths
     pod 'ReactiveLevelCache', :path => '../'
-    pod 'ReactiveCache', :path => '../../ReactiveCache'
 
     pod 'Kiwi'
   end

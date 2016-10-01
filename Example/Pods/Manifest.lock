@@ -8,7 +8,7 @@ PODS:
   - leveldb-library (1.18.2)
   - Objective-LevelDB (2.1.5):
     - leveldb-library (~> 1.18.2)
-  - ReactiveCache (0.11.0):
+  - ReactiveCache (0.13.0):
     - HanekeObjc
     - ReactiveCocoa (~> 2.0)
   - ReactiveCocoa (2.5):
@@ -26,12 +26,9 @@ PODS:
 
 DEPENDENCIES:
   - Kiwi
-  - ReactiveCache (from `../../ReactiveCache`)
   - ReactiveLevelCache (from `../`)
 
 EXTERNAL SOURCES:
-  ReactiveCache:
-    :path: "../../ReactiveCache"
   ReactiveLevelCache:
     :path: "../"
 
@@ -42,11 +39,11 @@ SPEC CHECKSUMS:
   Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
   leveldb-library: ef0453697c0fda3a9e550e5650e52976e6724548
   Objective-LevelDB: fa075efd9d0be645aee51847cc3ee70cdadb80ce
-  ReactiveCache: 375ad410611d3696525d75810b4e3afa8ed3ab9d
+  ReactiveCache: c5ab852ff52f19659350f9e7631525c9c5fd340f
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
-  ReactiveLevelCache: 7e158601c56a52b65237bffb2a1a51bbaea0763b
+  ReactiveLevelCache: dbfad4f9cb8ac374d5a9a0bafb9db304181e1a39
   StandardPaths: d5c7fadc9ea4327e460a19052d5a18cfbffa689d
 
-PODFILE CHECKSUM: e88bdb793c503e14c98c347d92d6ff60fb9e3932
+PODFILE CHECKSUM: a5839102b60bb38654ec097bb0aac345696de253
 
 COCOAPODS: 1.0.1

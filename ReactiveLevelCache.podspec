@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'ReactiveLevelCache'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of ReactiveLevelCache.'
+  s.summary          = 'Objective-C level db with Reactive Cache compatible interface'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+Google's LevelDB with RACSignal interface
                        DESC
 
   s.homepage         = 'https://github.com/haifengkao/ReactiveLevelCache'
