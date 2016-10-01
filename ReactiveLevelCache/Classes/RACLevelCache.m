@@ -61,7 +61,7 @@ static NSString *AttributesKey = @"attributes";
     NSString* cachePath = [[[NSFileManager defaultManager] offlineDataPath] stringByAppendingPathComponent:name];
     
     if (cachePath == nil) {
-		NSAssert(NO, @"bad argument");
+        NSAssert(NO, @"bad argument");
         return nil;
     }
     
@@ -100,14 +100,11 @@ static NSString *AttributesKey = @"attributes";
 }
 
 #pragma mark - Reactive Cache Protocol
-- (void)setObject:(id<NSCoding>)object forKey:(NSString *)key
+- (void)setObject:(NSObject<NSCoding>*)object forKey:(NSString *)key
 {
-    if (!key) { return; } // nothing to do
-    if (!object) {
-        // remove the object instead
-        [self remove:key];
-        return;
-    } 
+    NSParameterAssert(object);
+    NSParameterAssert(key);
+    if (!key || !object) { return; } // nothing to do
 
     NSData* data = [NSKeyedArchiver archivedDataWithRootObject:object];
     RACLevelItem* item = [[RACLevelItem alloc] init];
@@ -118,6 +115,9 @@ static NSString *AttributesKey = @"attributes";
 
 - (RACSignal*)objectForKey:(NSString*)key
 {
+    NSParameterAssert(key);
+    if (!key) { return; } // nothing to do
+
     RACLevelItem* item = (self.db)[key];
     if (!item) {
         return [RACSignal error:self.class.errorNotFound];
@@ -128,6 +128,9 @@ static NSString *AttributesKey = @"attributes";
 
 - (RACSignal*)objectForKeyExt:(NSString*)key
 {
+    NSParameterAssert(key);
+    if (!key) { return; } // nothing to do
+
     RACLevelItem* item = (self.db)[key];
     if (!item) {
         return [RACSignal error:self.class.errorNotFound];
@@ -138,6 +141,9 @@ static NSString *AttributesKey = @"attributes";
 
 - (void)remove:(NSString *)key
 {
+    NSParameterAssert(key);
+    if (!key) { return; } // nothing to do
+
     [self.db removeObjectForKey:key];
 }
 

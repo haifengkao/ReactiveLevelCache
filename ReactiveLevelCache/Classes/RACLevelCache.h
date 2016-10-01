@@ -17,7 +17,7 @@
 // get the object from the cache
 - (RACSignal*)objectForKey:(NSString *)key;
 // put the object in the cache
-- (void)setObject:(id<NSCoding>)object forKey:(NSString *)key;
+- (void)setObject:(NSObject<NSCoding>*)object forKey:(NSString *)key;
 - (void)remove:(NSString*)key;
 - (void)removeAll;
 
