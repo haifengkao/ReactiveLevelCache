@@ -22,6 +22,9 @@ describe(@"RACLevelCache", ^{
     let(done, ^{ // Occurs before each enclosed "it"
         return @(0);
     });
+    let(removed, ^{ // Occurs before each enclosed "it"
+        return @(0);
+    });
     
     beforeAll(^{ // Occurs once
     });
@@ -35,20 +38,10 @@ describe(@"RACLevelCache", ^{
     });
     
     afterEach(^{ // Occurs after each enclosed "it"
-        [testee removeAll];
-    });
-
-    it(@"should not store object with nil key", ^{
-        UIImage* img = [[UIImage alloc] init];
-        [testee setObject:img forKey:nil];
-        done = @(1);
-        [[expectFutureValue(done) shouldEventuallyBeforeTimingOutAfter(2000.0)] beTrue];
-    });
-
-    it(@"should not store nil image to cache", ^{
-        [testee setObject:nil forKey:@"img"];
-        done = @(1);
-        [[expectFutureValue(done) shouldEventuallyBeforeTimingOutAfter(2000.0)] beTrue];
+        [testee removeAll:^(){
+            removed = @(1);
+        }];
+        [[expectFutureValue(removed) shouldEventuallyBeforeTimingOutAfter(20)] beTrue];
     });
     
     it(@"should get the image from cache", ^{

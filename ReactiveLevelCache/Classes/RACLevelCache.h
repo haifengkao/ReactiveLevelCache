@@ -20,7 +20,7 @@
 // put the object in the cache
 - (void)setObject:(NSObject<NSCoding>*)object forKey:(NSString *)key;
 - (void)remove:(NSString*)key;
-- (void)removeAll;
+- (void)removeAll:(void(^)())completion;
 
 // get the tuple (NSData, object attributes) from the cache
 - (RACSignal*)objectForKeyExt:(NSString *)key;

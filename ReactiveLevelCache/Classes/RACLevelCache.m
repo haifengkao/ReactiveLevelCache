@@ -148,9 +148,12 @@ static NSString *AttributesKey = @"attributes";
     [self.db removeObjectForKey:key];
 }
 
-- (void)removeAll
+- (void)removeAll:(void(^)())completion
 {
     [self.db removeAllObjects];
+    if (completion) {
+        completion();
+    } 
 } 
                      
 - (double)cacheSize
