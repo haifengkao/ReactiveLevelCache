@@ -1,20 +1,9 @@
 import AltHaneke
-import Alamofire
 
 public class AltCache<T: DataConvertible where T.Result == T, T : DataRepresentable> : HanekeCache<T, AltDiskCache, NSCache> {
  
-    public var networkManager: NetworkManager = NetworkManager.sharedInstance
-
     public override init(name: String) {
         super.init(name: name)
-    }
-
-    public override func fetch(URL URL : NSURL, formatName: String, failure fail: Fetch<T>.Failer? = nil, success succeed: Fetch<T>.Succeeder? = nil) -> Fetch<T> {
-
-        // warning! networkManager might be changed at any moment, you need to store it
-        let manager = self.networkManager.manager
-        let fetcher = AltNetworkFetcher<T>(URL: URL, manager: manager)
-        return self.fetch(fetcher: fetcher, formatName: formatName, failure: fail, success: succeed)
     }
 
     public func cachePath(formatName: String) -> String {
@@ -26,39 +15,35 @@ public class AltCache<T: DataConvertible where T.Result == T, T : DataRepresenta
         
         return ""
     }
-}
 
-@objc public class NetworkManager : NSObject
-{
-    let internalManager: Manager 
-
-    public static let sharedInstance: NetworkManager = {
-        return NetworkManager()
-    }()
-
-    public convenience override init() {
-        self.init(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
-    }
-    
-    public init(configuration: NSURLSessionConfiguration) {
-        self.internalManager = NetworkManager.createManager(configuration)
-        super.init()
-    }
-
-    public var manager: Manager {
-        get{ return internalManager }
-    }
-
-    static func createManager(configuration: NSURLSessionConfiguration) -> Manager{
-        let delegate = Manager.SessionDelegate()
-        let session = NSURLSession(configuration: configuration, delegate: delegate, delegateQueue: nil)
-        let manager = Manager(session: session, delegate:delegate)
-
-        if let manager = manager {
-            return manager
-        } else {
-            assert(false, "do you have the correct session delegate?")
-            return Manager()
+    // path the original Cache.swift's removeAll
+    public override func removeAll(completion: (() -> ())? = nil) {
+        let group = dispatch_group_create();
+        for (_, (_, memoryCache, diskCache)) in self.formats {
+            memoryCache.removeAllObjects()
+            dispatch_group_enter(group)
+            diskCache.removeAllData {
+                dispatch_group_leave(group)
+            }
+        }
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            let timeout = dispatch_time(DISPATCH_TIME_NOW, Int64(60 * NSEC_PER_SEC))
+            if dispatch_group_wait(group, timeout) != 0 {
+                Log.error("removeAll timed out waiting for disk caches")
+            }
+            // HF: remove the cache path will stop the cache from writing any other data
+            // HF: until the cache object is recreated
+            // let path = self.cachePath
+            // do {
+            //     try NSFileManager.defaultManager().removeItemAtPath(path)
+            // } catch {
+            //     Log.error("Failed to remove path \(path)", error as NSError)
+            // }
+            if let completion = completion {
+                dispatch_async(dispatch_get_main_queue()) {
+                    completion()
+                }
+            }
         }
     }
 }

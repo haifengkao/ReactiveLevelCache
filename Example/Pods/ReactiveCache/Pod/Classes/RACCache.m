@@ -25,9 +25,9 @@
     [self.cache removeWithKey:key formatName:self.formatName];
 }
 
-- (void)removeAll 
+- (void)removeAll:(void(^)())completion
 {
-    return [self.cache removeAll];
+    return [self.cache removeAll:completion];
 }
 
 - (RACSignal*)objectForKey:(NSString *)key
@@ -70,38 +70,5 @@
 
     [self.cache setWithValue:object key:key formatName:self.formatName success:nil]; 
  }
-
-- (RACSignal*)fetchURLSignal:(NSURL*)url
-{
-    NSString* key = url.absoluteString;
-
-    if (!key) {
-        return nil;
-    }
-
-    @weakify(self);
-    RACSignal* signal = [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber)
-    {
-        @strongify(self);
-        // returns the fetch object
-        [self.cache fetchWithURL:url
-                      formatName:self.formatName
-                         failure:^(NSError* error){
-                           [subscriber sendError:error];
-                        }
-                         success:^(id obj){
-                            [subscriber sendNext: obj];
-                            [subscriber sendCompleted];
-        }];
-        return [RACDisposable disposableWithBlock:^{
-            // TODO: cancel is not implemented in Haneke
-            //[dataTask cancel];
-        }];
-        
-    }] 
-    replayLazily];
-
-    return signal;
-}
 
 @end
