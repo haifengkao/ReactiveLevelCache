@@ -16,7 +16,7 @@ PODS:
   - ReactiveCocoa/no-arc (2.5)
   - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
-  - ReactiveLevelCache (0.2.0):
+  - ReactiveLevelCache (0.4.0):
     - Objective-LevelDB
     - ReactiveCache
     - StandardPaths
@@ -38,7 +38,7 @@ SPEC CHECKSUMS:
   Objective-LevelDB: fa075efd9d0be645aee51847cc3ee70cdadb80ce
   ReactiveCache: f0df0547bafbc5b596c47822821833e90ff89cec
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
-  ReactiveLevelCache: 40c2bd0cc0896d6ebea55a40ee073ed372e88410
+  ReactiveLevelCache: b225f87f29b156ba88684fbbe0d992688eac17c5
   StandardPaths: d5c7fadc9ea4327e460a19052d5a18cfbffa689d
 
 PODFILE CHECKSUM: a5839102b60bb38654ec097bb0aac345696de253
