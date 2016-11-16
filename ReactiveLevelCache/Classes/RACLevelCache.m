@@ -109,7 +109,7 @@ static NSString *AttributesKey = @"attributes";
 
     NSData* data = [NSKeyedArchiver archivedDataWithRootObject:object];
     RACLevelItem* item = [[RACLevelItem alloc] init];
-    item.attributes = @{NSFileModificationDate: [NSDate date]};
+    item.attributes = @{NSFileModificationDate:[NSDate date], NSFileSize:@(data.length)};
     item.data = data;
     [self.db setObject:item forKey:key];
 }
@@ -127,7 +127,7 @@ static NSString *AttributesKey = @"attributes";
     return [RACSignal return:object];
 }
 
-- (RACSignal*)objectForKeyExt:(NSString*)key
+- (RACSignal*)objectForKeyEx:(NSString*)key
 {
     NSParameterAssert(key);
     if (!key) { return [RACSignal error:[[self class] errorNotFound]]; } // nothing to do

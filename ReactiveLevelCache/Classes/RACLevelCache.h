@@ -23,7 +23,7 @@
 - (void)removeAll:(void(^)())completion;
 
 // get a tuple (NSData*, NSDictinoary* object_attributes) from the cache
-- (RACSignal*)objectForKeyExt:(NSString *)key;
+- (RACSignal*)objectForKeyEx:(NSString *)key;
 // return the cache size in bytes
 - (double)cacheSize;
 
