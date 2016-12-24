@@ -27,36 +27,41 @@ def findProjectName(working_directory):
 flags = [
 # TODO: find the correct cache path automatically
 '-D__IPHONE_OS_VERSION_MIN_REQUIRED=80000',
-'-mios-simulator-version-min=8.0',
-'-arch i386',
+'-miphoneos-version-min=9.3',
+'-arch', 'arm64',
 '-fblocks',
-'-fobjc-runtime=ios-8.0.0',
-# '-fmodules',
+'-fmodules',
 '-fobjc-arc',
 '-fobjc-exceptions',
 '-fexceptions',
 '-isystem',
 '/Library/Developer/CommandLineTools/usr/include/c++/v1', # for c++ headers <string>, <iostream> definition
 '-x',
-'objective-c++',
-'-F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks',
-'-F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks',
-'-I/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/Foundation.framework/Headers',
-'-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include',
-'-isystem', '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1'
-'-I/Library/Developer/CommandLineTools/usr/include',
+'objective-c',
+'-Wno-#pragma-messages',
+'-Wno-#warnings',
+# '-F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks',
+# '-F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks',
+# '-I/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/Foundation.framework/Headers',
+# '-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include',
+# '-isystem', '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1'
+# '-I/Library/Developer/CommandLineTools/usr/include',
 #custom definition, include subfolders
 '-ProductFrameworkInclude', # include the framework in the products(in derivedData) folder
+'-include',
+'./1piece/Prefix/1piece-Prefix.pch',
+'-include',
+'./Example/1piece/1piece-Prefix.pch',
 '-I./Example/'+findProjectName(DirectoryOfThisScript()), # new cocoapods directory
 '-ISUB./Pod/Classes', # old cocoapods directory
 '-ISUB./'+findProjectName(DirectoryOfThisScript()), # new cocoapods directory
+'-ISUB./1piece,' # new cocoapods directory
 # use headers in framework instead
 #'-ISUB./Example/Pods', # new cocoapods directory
 # '-F/Users/Lono/Library/Developer/Xcode/DerivedData/Scrapio-dliwlpgcvwijijcdxarawwtrfuuh/Build/Products/Debug-iphonesimulator/Kiwi/',
 # '-include',
 # './Example/Tests/Tests-Prefix.pch', # test project prefix header
-'-isysroot',
-'/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk',
+'-isysroot', '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk'
 # '-fencode-extended-block-signature',  #libclang may report error on this
 
 # '-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/7.0.2/include', # let IncludeClangInXCToolChain handle it
@@ -120,6 +125,19 @@ def IncludeClangInXCToolChain(flags, working_directory):
     new_flags.append('-I'+includePath)
   return new_flags
 
+def FindDerivedDataPath( derivedDataPath, projectName ):
+  simulatorPaths = ['Build/Intermediates/CodeCoverage/Products/Debug-iphonesimulator/', # if you enable CodeCoverage, the framework of test target will be put in coverage folder, strange
+                    'Build/Products/Debug-iphonesimulator/']
+
+  # search ~/Library/Developer/Xcode/DerivedData/ to find <project_name>-dliwlpgcvwijijcdxarawwtrfuuh
+  derivedPath = sorted_ls(derivedDataPath)[::-1] # newest file first
+  for productPath in derivedPath:
+    if productPath.lower().startswith( projectName.lower() ):
+      for simulatorPath in simulatorPaths:
+        projectPath = os.path.join('', *[derivedDataPath, productPath, simulatorPath])
+        if (len(projectPath) > 0) and os.path.exists(projectPath):
+          return projectPath # the lastest product is what we want (really?)
+  return ''
 def IncludeFlagsOfFrameworkHeaders( flags, working_directory ):
   if not working_directory:
     return flags
@@ -127,8 +145,7 @@ def IncludeFlagsOfFrameworkHeaders( flags, working_directory ):
   new_flags = []
   path_flag = '-ProductFrameworkInclude'
   derivedDataPath = os.path.expanduser('~/Library/Developer/Xcode/DerivedData/')
-  simulatorPaths = ['Build/Intermediates/CodeCoverage/Products/Debug-iphonesimulator/', # if you enable CodeCoverage, the framework of test target will be put in coverage folder, strange
-                    'Build/Products/Debug-iphonesimulator/']
+
   # find the project name
   projectName = findProjectName(working_directory)
   if len(projectName) <= 0:
@@ -139,22 +156,17 @@ def IncludeFlagsOfFrameworkHeaders( flags, working_directory ):
     if not flag.startswith( path_flag ):
       new_flags.append(flag)
       continue
-    projectPath = ''
-    # search ~/Library/Developer/Xcode/DerivedData/ to find <project_name>-dliwlpgcvwijijcdxarawwtrfuuh
-    derivedPath = sorted_ls(derivedDataPath)[::-1] # newest file first
-    for productPath in derivedPath:
-      if productPath.lower().startswith( projectName.lower() ):
-        for simulatorPath in simulatorPaths:
-          projectPath = os.path.join('', *[derivedDataPath, productPath, simulatorPath])
-          if (len(projectPath) > 0) and os.path.exists(projectPath):
-            break # the lastest product is what we want (really?)
 
+    projectPath = FindDerivedDataPath( derivedDataPath, projectName )
     if (len(projectPath) <= 0) or not os.path.exists(projectPath):
       continue
 
     # iterate through all frameworks folders /Debug-iphonesimulator/xxx/xxx.framework
     for frameworkFolder in os.listdir(projectPath):
       frameworkPath = os.path.join('', projectPath, frameworkFolder)
+
+      if not os.path.isdir(frameworkPath):
+        continue
       # framwork folder '-F/Debug-iphonesimulator/<framework-name>'
       # solve <Kiwi/KiwiConfigurations.h> not found problem
       new_flags.append('-F'+frameworkPath)
@@ -261,17 +273,6 @@ def GetCompilationInfoForFile( filename ):
 
 import time
 def FlagsForFile( filename, **kwargs ):
-  # update .clang for chromatica every 5min TODO: very dirty
-
-  chromatica_file = DirectoryOfThisScript() + '/.clang'
-
-  if (not os.path.exists(chromatica_file)) or (time.time() - os.stat(chromatica_file).st_mtime > 5*60):
-    parsed_flags = IncludeFlagsOfSubdirectory( flags, DirectoryOfThisScript() )
-    escaped = [flag for flag in parsed_flags if " " not in flag] # chromatica doesn't handle space in flag
-    f = open(chromatica_file, 'w') # truncate the current file
-    f.write('flags='+' '.join(escaped))
-    f.close()
-
   if database:
     # Bear in mind that compilation_info.compiler_flags_ does NOT return a
     # python list, but a "list-like" StringVec object
@@ -294,12 +295,25 @@ def FlagsForFile( filename, **kwargs ):
     relative_to = DirectoryOfThisScript()
     final_flags = MakeRelativePathsInFlagsAbsolute( flags, relative_to )
 
+  # update .clang for chromatica every 5min TODO: very dirty
+  chromatica_file = DirectoryOfThisScript() + '/.clang'
+
+  if (not os.path.exists(chromatica_file)) or (time.time() - os.stat(chromatica_file).st_mtime > 5*60):
+    parsed_flags = IncludeFlagsOfSubdirectory( final_flags, DirectoryOfThisScript() )
+    escaped = [flag for flag in parsed_flags if " " not in flag] # chromatica doesn't handle space in flag
+    f = open(chromatica_file, 'w') # truncate the current file
+    f.write('flags='+' '.join(escaped))
+    f.close()
+
   return {
     'flags': final_flags,
     'do_cache': True
   }
 
+
 # if __name__ == "__main__":
+  # print (FlagsForFile(""))
+
   # flags = [
   # '-D__IPHONE_OS_VERSION_MIN_REQUIRED=70000',
   # '-x',
@@ -312,23 +326,9 @@ def FlagsForFile( filename, **kwargs ):
   # ]
 
   # print IncludeClangInXCToolChain(flags, DirectoryOfThisScript())
-
-# if __name__ == "__main__":
-  # flags = [
-  # '-D__IPHONE_OS_VERSION_MIN_REQUIRED=70000',
-  # '-x',
-  # 'objective-c',
-  # '-ProductFrameworkInclude',
-  # '-ProductFrameworkInclude',
-  # '-F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks',
-  # '-ISUB./Pods/Headers/Public',
-  # '-MMD',
-  # ]
-
   # print IncludeFlagsOfFrameworkHeaders( flags, DirectoryOfThisScript() )
 
-# if __name__ == '__main__':
-    # # res = subdirectory( DirectoryOfThisScript())
+  # # res = subdirectory( DirectoryOfThisScript())
   # flags = [
   # '-D__IPHONE_OS_VERSION_MIN_REQUIRED=70000',
   # '-x',
@@ -338,14 +338,10 @@ def FlagsForFile( filename, **kwargs ):
   # '-MMD',
   # ]
 
-  # print IncludeFlagsOfSubdirectory( flags, DirectoryOfThisScript() )
+  # print (IncludeFlagsOfSubdirectory( flags, DirectoryOfThisScript() ))
   # res = IncludeFlagsOfSubdirectory( flags, DirectoryOfThisScript() )
   # escaped = []
   # for flag in res:
     # if " " not in flag:
       # escaped.append(flag)
   # print ' '.join(escaped)
-
-
-
-
