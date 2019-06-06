@@ -100,6 +100,14 @@ static NSString *AttributesKey = @"attributes";
     return notFound;
 }
 
+- (id<NSCoding>)objectForKeySync:(NSString*)key
+{
+    RACLevelItem* item = (self.db)[key];
+    if (!item) { return nil; } 
+    id<NSCoding> object = [NSKeyedUnarchiver unarchiveObjectWithData:item.data];
+    return object;
+} 
+
 #pragma mark - Reactive Cache Protocol
 - (void)setObject:(NSObject<NSCoding>*)object forKey:(NSString *)key
 {
@@ -127,7 +135,7 @@ static NSString *AttributesKey = @"attributes";
     return [RACSignal return:object];
 }
 
-- (RACSignal*)objectForKeyEx:(NSString*)key
+- (RACSignal<RACTuple*>*)objectForKeyEx:(NSString*)key
 {
     NSParameterAssert(key);
     if (!key) { return [RACSignal error:[[self class] errorNotFound]]; } // nothing to do
@@ -148,7 +156,7 @@ static NSString *AttributesKey = @"attributes";
     [self.db removeObjectForKey:key];
 }
 
-- (void)removeAll:(void(^)())completion
+- (void)removeAll:(void(^)(void))completion
 {
     [self.db removeAllObjects];
     if (completion) {

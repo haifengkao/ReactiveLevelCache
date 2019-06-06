@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @import ReactiveCache;
-@class RACSignal;
+@import ReactiveObjC;
 
 @interface RACLevelCache : NSObject<RACCache>
 - (instancetype)initWithName:(NSString*) name;
+
+- (id<NSCoding>)objectForKeySync:(NSString*)key;
 
 #pragma mark - Reactive Cache Protocol
 // get the object from the cache
@@ -20,10 +22,10 @@
 // put the object in the cache
 - (void)setObject:(NSObject<NSCoding>*)object forKey:(NSString *)key;
 - (void)remove:(NSString*)key;
-- (void)removeAll:(void(^)())completion;
+- (void)removeAll:(void(^)(void))completion;
 
 // get a tuple (NSData*, NSDictinoary* object_attributes) from the cache
-- (RACSignal*)objectForKeyEx:(NSString *)key;
+- (RACSignal<RACTuple*>*)objectForKeyEx:(NSString*)key;
 // return the cache size in bytes
 - (double)cacheSize;
 
