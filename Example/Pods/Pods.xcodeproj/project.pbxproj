@@ -3526,37 +3526,6 @@
 			};
 			name = Debug;
 		};
-		355BCF9E378C513846C446AD120A8F2B /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 49791D6B1108290027B3074F218C4214 /* ReactiveLevelCache.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/ReactiveLevelCache/ReactiveLevelCache-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ReactiveLevelCache/ReactiveLevelCache-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/ReactiveLevelCache/ReactiveLevelCache.modulemap";
-				PRODUCT_MODULE_NAME = ReactiveLevelCache;
-				PRODUCT_NAME = ReactiveLevelCache;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		408814C7ACED1553960046BB524A1E13 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 752990F7B2A73FDAA1B5DCB998CE7A48 /* ReactiveObjC.xcconfig */;
@@ -3869,6 +3838,38 @@
 			};
 			name = Release;
 		};
+		C5A9F4C6DA1359F8E059805AA09C768F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49791D6B1108290027B3074F218C4214 /* ReactiveLevelCache.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ReactiveLevelCache/ReactiveLevelCache-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ReactiveLevelCache/ReactiveLevelCache-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ReactiveLevelCache/ReactiveLevelCache.modulemap";
+				PRODUCT_MODULE_NAME = ReactiveLevelCache;
+				PRODUCT_NAME = ReactiveLevelCache;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		D28927DB23E00D0BDB970A0F8CDF28E5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2E818511C2E7E5454A01A74CCC18F632 /* AltHanekeSwift.xcconfig */;
@@ -3995,7 +3996,7 @@
 			};
 			name = Debug;
 		};
-		F193453BD1C1372F4C6530FD9035016F /* Debug */ = {
+		F96E2FAA516FF90382D00F7BC666F944 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 49791D6B1108290027B3074F218C4214 /* ReactiveLevelCache.xcconfig */;
 			buildSettings = {
@@ -4019,6 +4020,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -4251,8 +4253,8 @@
 		FED796A7487100EC2142A2DCBEE68A1E /* Build configuration list for PBXNativeTarget "ReactiveLevelCache" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F193453BD1C1372F4C6530FD9035016F /* Debug */,
-				355BCF9E378C513846C446AD120A8F2B /* Release */,
+				F96E2FAA516FF90382D00F7BC666F944 /* Debug */,
+				C5A9F4C6DA1359F8E059805AA09C768F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

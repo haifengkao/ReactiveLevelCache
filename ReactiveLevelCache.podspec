@@ -31,6 +31,7 @@ Google's LevelDB with RACSignal interface
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'ReactiveLevelCache/Classes/**/*'
+  s.swift_version = '4.2' # AltHanekeSwift use 4.2
   
   # s.resource_bundles = {
   #   'ReactiveLevelCache' => ['ReactiveLevelCache/Assets/*.png']
