@@ -9,7 +9,7 @@ PODS:
   - ReactiveCache (0.33.0):
     - HanekeObjc
     - ReactiveObjC
-  - ReactiveLevelCache (0.7.0):
+  - ReactiveLevelCache (0.8.0):
     - Objective-LevelDB
     - ReactiveCache
     - StandardPaths
@@ -42,7 +42,7 @@ SPEC CHECKSUMS:
   leveldb-library: 10fb39c39e243db4af1828441162405bbcec1404
   Objective-LevelDB: fa075efd9d0be645aee51847cc3ee70cdadb80ce
   ReactiveCache: 9498a91f8c1234ca5b8e9444dbb6b3c712f22688
-  ReactiveLevelCache: 27ba2130dc0e7abe40d15e36cb54e4a8f0e91cc9
+  ReactiveLevelCache: f57501b9fe5ee264a52e8cd020cbeb0d26254e55
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   StandardPaths: fb0dfc241d3e99ecabd7d1adec965b20d1b9bd1a
 
