@@ -16,13 +16,13 @@
     "tag": "0.8.0"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
   "source_files": "ReactiveLevelCache/Classes/**/*",
-  "swift_version": "4.2",
+  "swift_version": "5.0",
   "dependencies": {
     "ReactiveCache": [
-
+      ">= 0.37.0"
     ],
     "StandardPaths": [
 

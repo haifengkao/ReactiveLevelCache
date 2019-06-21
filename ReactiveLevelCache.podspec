@@ -28,10 +28,10 @@ Google's LevelDB with RACSignal interface
   s.source           = { :git => 'https://github.com/haifengkao/ReactiveLevelCache.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'ReactiveLevelCache/Classes/**/*'
-  s.swift_version = '4.2' # AltHanekeSwift use 4.2
+  s.swift_version = '5.0' # AltHanekeSwift use 4.2
   
   # s.resource_bundles = {
   #   'ReactiveLevelCache' => ['ReactiveLevelCache/Assets/*.png']
@@ -39,7 +39,7 @@ Google's LevelDB with RACSignal interface
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-   s.dependency 'ReactiveCache'
+   s.dependency 'ReactiveCache', '>= 0.37.0' # swift 5
    s.dependency 'StandardPaths'
    s.dependency 'Objective-LevelDB'
 end

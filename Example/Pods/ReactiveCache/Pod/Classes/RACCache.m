@@ -36,7 +36,7 @@
     [self.cache removeWithKey:key formatName:self.formatName];
 }
 
-- (void)removeAll:(void(^)())completion
+- (void)removeAll:(void(^)(void))completion
 {
     return [self.cache removeAll:completion];
 }
@@ -71,7 +71,7 @@
     RACSignal* signal = [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber)
     {
         @strongify(self);
-        [self.cache fetchWithKey:key 
+        (void)[self.cache fetchWithKey:key 
                      formatName:self.formatName
                         failure:^(NSError* error){
                            [subscriber sendError:error];
@@ -129,7 +129,7 @@
 
     if (!object || !key ) { return; }
 
-    [self.cache setWithValue:object key:key formatName:self.formatName success:nil]; 
+    [self.cache setWithValue:(id)object key:key formatName:self.formatName success:nil]; 
 }
 
 - (double)cacheSize
