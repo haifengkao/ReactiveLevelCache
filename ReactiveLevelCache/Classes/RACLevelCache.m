@@ -10,7 +10,6 @@
 #import "RACSignal.h"
 #import "RACTuple.h"
 #import "LevelDB.h"
-#import "StandardPaths.h"
 #import "RACCache.h"
 
 #ifndef SAFE_CAST
@@ -56,10 +55,10 @@ static NSString *AttributesKey = @"attributes";
 
 @implementation RACLevelCache
 
-- (instancetype)initWithName:(NSString*) name
+- (instancetype)initWithName:(NSString*) name cachePath:(NSString*)cachePath
 {
     // offline data path won't be synced to iCloud
-    NSString* cachePath = [[[NSFileManager defaultManager] offlineDataPath] stringByAppendingPathComponent:name];
+    // NSString* cachePath = [[[NSFileManager defaultManager] offlineDataPath] stringByAppendingPathComponent:name];
     
     if (cachePath == nil) {
         NSAssert(NO, @"bad argument");

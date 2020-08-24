@@ -40,6 +40,5 @@ Google's LevelDB with RACSignal interface
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
    s.dependency 'ReactiveCache', '>= 0.37.0' # swift 5
-   s.dependency 'StandardPaths'
    s.dependency 'Objective-LevelDB'
 end

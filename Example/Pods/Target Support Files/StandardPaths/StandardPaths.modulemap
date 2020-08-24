@@ -1,6 +1,0 @@
-framework module StandardPaths {
-  umbrella header "StandardPaths-umbrella.h"
-
-  export *
-  module * { export * }
-}

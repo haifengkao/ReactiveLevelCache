@@ -19,16 +19,14 @@
     "ios": "9.0"
   },
   "source_files": "ReactiveLevelCache/Classes/**/*",
-  "swift_version": "5.0",
+  "swift_versions": "5.0",
   "dependencies": {
     "ReactiveCache": [
       ">= 0.37.0"
     ],
-    "StandardPaths": [
-
-    ],
     "Objective-LevelDB": [
 
     ]
-  }
+  },
+  "swift_version": "5.0"
 }

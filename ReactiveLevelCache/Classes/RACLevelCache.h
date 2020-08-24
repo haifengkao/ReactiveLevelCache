@@ -12,8 +12,7 @@
 @import ReactiveObjC;
 
 @interface RACLevelCache : NSObject<RACCache>
-- (instancetype)initWithName:(NSString*) name;
-
+- (instancetype)initWithName:(NSString*) name cachePath:(NSString*)cachePath;
 - (id<NSCoding>)objectForKeySync:(NSString*)key;
 
 #pragma mark - Reactive Cache Protocol
