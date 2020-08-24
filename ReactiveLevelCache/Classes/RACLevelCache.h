@@ -11,7 +11,7 @@
 @import ReactiveCache;
 @import ReactiveObjC;
 
-@interface RACLevelCache : NSObject<RACCache>
+@interface RACLevelCache: NSObject<RACCache>
 - (instancetype)initWithName:(NSString*) name cachePath:(NSString*)cachePath;
 - (id<NSCoding>)objectForKeySync:(NSString*)key;
 
