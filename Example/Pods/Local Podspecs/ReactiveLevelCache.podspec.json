@@ -26,6 +26,9 @@
     ],
     "Objective-LevelDB": [
 
+    ],
+    "leveldb-library": [
+      ">= 1.22"
     ]
   },
   "swift_version": "5.0"

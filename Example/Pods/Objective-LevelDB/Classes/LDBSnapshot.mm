@@ -163,7 +163,7 @@
 }
 
 - (void) close {
-    if (_snapshot && _db && ![_db closed]) {
+    if (_snapshot) {
         [_db db]->ReleaseSnapshot(_snapshot);
         _snapshot = nil;
     }

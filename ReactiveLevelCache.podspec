@@ -41,4 +41,5 @@ Google's LevelDB with RACSignal interface
   # s.frameworks = 'UIKit', 'MapKit'
    s.dependency 'ReactiveCache', '>= 0.37.0' # swift 5
    s.dependency 'Objective-LevelDB'
+   s.dependency 'leveldb-library', '>= 1.22'
 end

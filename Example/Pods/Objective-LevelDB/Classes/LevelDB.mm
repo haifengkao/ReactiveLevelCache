@@ -146,7 +146,6 @@ LevelDBOptions MakeLevelDBOptions() {
                                                error:&crError];
             if (!success) {
                 NSLog(@"Problem creating parent directory: %@", crError);
-                return nil;
             }
         }
         
@@ -161,7 +160,6 @@ LevelDBOptions MakeLevelDBOptions() {
         
         if(!status.ok()) {
             NSLog(@"Problem creating LevelDB database: %s", status.ToString().c_str());
-            return nil;
         }
         
         self.encoder = ^ NSData *(LevelDBKey *key, id object) {
@@ -249,12 +247,6 @@ LevelDBOptions MakeLevelDBOptions() {
     if(!status.ok()) {
         NSLog(@"Problem applying the write batch in database: %s", status.ToString().c_str());
     }
-}
-
-- (void)performWritebatch:(void (^)(LDBWritebatch *wb))block {
-    LDBWritebatch *wb = [self newWritebatch];
-    block(wb);
-    [wb apply];
 }
 
 #pragma mark - Getters
@@ -455,7 +447,7 @@ LevelDBOptions MakeLevelDBOptions() {
                 keyChar = (unsigned char *)startingKeyPtr + i;
                 if (*keyChar < 255) {
                     *keyChar = *keyChar + 1;
-                    iter->Seek(leveldb::Slice((char *)startingKeyPtr, startingKey.size()));
+                    iter->Seek(leveldb::Slice((char *)startingKeyPtr, prefixLen));
                     if (!iter->Valid()) {
                         iter->SeekToLast();
                     }
@@ -468,11 +460,8 @@ LevelDBOptions MakeLevelDBOptions() {
                 return;
             
             lkey = iter->key();
-            if (startingKey.size() && prefix) {
-                signed int cmp = memcmp(lkey.data(), startingKey.data(), startingKey.size());
-                if (cmp > 0) {
-                    iter->Prev();
-                }
+            if (prefix && memcmp(lkey.data(), prefixPtr, prefixLen) != 0) {
+                iter->Prev();
             }
         } else {
             // Otherwise, we start at the provided prefix

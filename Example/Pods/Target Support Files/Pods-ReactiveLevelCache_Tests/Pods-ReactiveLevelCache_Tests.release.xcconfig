@@ -1,9 +1,7 @@
-CC = clang
-CXX = clang++
 EMBEDDED_CONTENT_CONTAINS_SWIFT = YES
 FRAMEWORK_SEARCH_PATHS = $(inherited) "$(PLATFORM_DIR)/Developer/Library/Frameworks" "${PODS_CONFIGURATION_BUILD_DIR}/AltHanekeSwift" "${PODS_CONFIGURATION_BUILD_DIR}/HanekeObjc" "${PODS_CONFIGURATION_BUILD_DIR}/Kiwi" "${PODS_CONFIGURATION_BUILD_DIR}/Objective-LevelDB" "${PODS_CONFIGURATION_BUILD_DIR}/ReactiveCache" "${PODS_CONFIGURATION_BUILD_DIR}/ReactiveLevelCache" "${PODS_CONFIGURATION_BUILD_DIR}/ReactiveObjC" "${PODS_CONFIGURATION_BUILD_DIR}/leveldb-library"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AltHanekeSwift/AltHaneke.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/HanekeObjc/HanekeObjc.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Kiwi/Kiwi.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Objective-LevelDB/Objective_LevelDB.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/ReactiveCache/ReactiveCache.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/ReactiveLevelCache/ReactiveLevelCache.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/ReactiveObjC/ReactiveObjC.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/leveldb-library/leveldb.framework/Headers" "${PODS_ROOT}/leveldb-library/" "${PODS_ROOT}/leveldb-library/include"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AltHanekeSwift/AltHaneke.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/HanekeObjc/HanekeObjc.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Kiwi/Kiwi.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Objective-LevelDB/Objective_LevelDB.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/ReactiveCache/ReactiveCache.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/ReactiveLevelCache/ReactiveLevelCache.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/ReactiveObjC/ReactiveObjC.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/leveldb-library/leveldb.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
 OTHER_LDFLAGS = $(inherited) -l"c++" -framework "AltHaneke" -framework "Foundation" -framework "HanekeObjc" -framework "Kiwi" -framework "Objective_LevelDB" -framework "ReactiveCache" -framework "ReactiveLevelCache" -framework "ReactiveObjC" -framework "XCTest" -framework "leveldb"
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
@@ -12,4 +10,3 @@ PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLA
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
 PODS_ROOT = ${SRCROOT}/Pods
 USE_RECURSIVE_SCRIPT_INPUTS_IN_SCRIPT_PHASES = YES
-WARNING_CFLAGS = -Wno-shorten-64-to-32
