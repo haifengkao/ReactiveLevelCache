@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ReactiveLevelCache'
-  s.version          = '0.14.0'
+  s.version          = '0.15.0'
   s.summary          = 'Objective-C level db with Reactive Cache compatible interface'
 
 # This description is used to generate tags and improve search results.
