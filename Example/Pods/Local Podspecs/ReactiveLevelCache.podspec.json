@@ -1,6 +1,6 @@
 {
   "name": "ReactiveLevelCache",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "summary": "Objective-C level db with Reactive Cache compatible interface",
   "description": "Google's LevelDB with RACSignal interface",
   "homepage": "https://github.com/haifengkao/ReactiveLevelCache",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/haifengkao/ReactiveLevelCache.git",
-    "tag": "0.13.0"
+    "tag": "0.14.0"
   },
   "platforms": {
     "ios": "9.0"
@@ -29,6 +29,9 @@
     ],
     "leveldb-library": [
       ">= 1.22"
+    ],
+    "ReactiveObjC": [
+
     ]
   },
   "swift_version": "5.0"

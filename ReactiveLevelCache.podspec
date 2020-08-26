@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ReactiveLevelCache'
-  s.version          = '0.13.0'
+  s.version          = '0.14.0'
   s.summary          = 'Objective-C level db with Reactive Cache compatible interface'
 
 # This description is used to generate tags and improve search results.
@@ -42,4 +42,5 @@ Google's LevelDB with RACSignal interface
    s.dependency 'ReactiveCache', '>= 0.37.0' # swift 5
    s.dependency 'Objective-LevelDB'
    s.dependency 'leveldb-library', '>= 1.22'
+   s.dependency 'ReactiveObjC'
 end

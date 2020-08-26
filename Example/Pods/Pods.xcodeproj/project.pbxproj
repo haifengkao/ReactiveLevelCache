@@ -160,6 +160,7 @@
 		49B6BF4721C9D9D33D625815011794AC /* CGSize+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745738F29912F8CF6F029B3AF838187C /* CGSize+Swift.swift */; };
 		4B64055584AB1F88524BD84012CFD965 /* NSInvocation+KiwiAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A6B8C38C3F794B370BBB35865429F0 /* NSInvocation+KiwiAdditions.m */; };
 		4B6DC0A1F03966E2CB3C730A9534507D /* NSIndexSet+RACSequenceAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6728542E95217B00E6024B30F6439073 /* NSIndexSet+RACSequenceAdditions.m */; };
+		4B81196A0606AE336A8BC64D5D448135 /* ReactiveObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48E0B6F8A6F0012B9525C7C4ED8902A /* ReactiveObjC.framework */; };
 		4BA5E90FD9EC8C2994BB22ADE0ABC011 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4FD1F51AC7C6DE6644D4B56E4A01CB /* Fetcher.swift */; };
 		4BD42FEB504CFF4EDCACAA6A90F2296B /* NSProxy+KiwiVerifierAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D158BD504F94472FD2269EFFA56F9AD8 /* NSProxy+KiwiVerifierAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D4DAA92870FEEBDB9DA3E047C0DD239 /* KWMatcherFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF936948AAD5D4CAE3C09C31D62555C /* KWMatcherFactory.m */; };
@@ -203,7 +204,6 @@
 		5E42A79B5F5AE3F902457A04CA86C489 /* env_posix.cc in Sources */ = {isa = PBXBuildFile; fileRef = A37E200BD8EA8D359FF22E934C7863CA /* env_posix.cc */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5E7851F9D8A3A14755C9E5912E8975CF /* UIBarButtonItem+RACCommandSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DA2AE7DABFAFF69C1E13366C81A7881 /* UIBarButtonItem+RACCommandSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5EC9A669C1FA8BBD75DBB645DF4CEB9E /* RACTestScheduler.h in Headers */ = {isa = PBXBuildFile; fileRef = DF21228C291D631C83B58B0CF5184D12 /* RACTestScheduler.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5ED33D3D249FBB9FB064A32160D5A0AB /* leveldb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC039CC2DA74B2F44DE3286D96E4D643 /* leveldb.framework */; };
 		5EE78BD62605F3BC01389A87FDDDF74F /* Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B39EDEDE8088F4FE1F89420FB1D333 /* Fetch.swift */; };
 		5F08DBEC089C6ACCDB1D5AD2737E7BAF /* Pods-ReactiveLevelCache_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C7F587406AF95A8DE06F80131AEC18 /* Pods-ReactiveLevelCache_Tests-dummy.m */; };
 		5F24078783DB62894CE2D19E958183A5 /* logging.h in Headers */ = {isa = PBXBuildFile; fileRef = EF0211CE1E32F3614812738660CCB336 /* logging.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -320,6 +320,7 @@
 		93D52A209C17544741E98A81BAF15C10 /* cache.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E65B7D4EB0C6D4C63DFCACB8623A11 /* cache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		940257136F2A89DD25D0354CC2F34FFA /* RACEXTKeyPathCoding.h in Headers */ = {isa = PBXBuildFile; fileRef = C7572EEAC78E65A6FB8E28302BBAB1FA /* RACEXTKeyPathCoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		946031DC2E02F2EDD5A7BD85386B4B1F /* DiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC624D7B8ADA82C887A2BD3446723290 /* DiskCache.swift */; };
+		948C25D18109C3837F18B4C5C6E33F2A /* ReactiveLevelCache-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4741DEDCC70484776BE5E285636585DB /* ReactiveLevelCache-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96351348E49352FBA8B490C8769AC621 /* KiwiConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = AB76559C0DDD77737C98146C5A3430F5 /* KiwiConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		963BD6B20F679F45D27BCA4FC779D657 /* KWRespondToSelectorMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 1966578D2A9758360F18D82D6DBE5877 /* KWRespondToSelectorMatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96B3B745E3D2075AE846D636FAD7B49F /* NSObject+RACKVOWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA2CC58D7852982F30C7DA49E307AF /* NSObject+RACKVOWrapper.m */; };
@@ -379,7 +380,6 @@
 		B3D03D4DB099648A3B741C75D82E0ADE /* RACImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 681BE125862F4FE736B7CB55CEBD28B2 /* RACImageCache.m */; };
 		B3EB8A7C8E9BBB86796C510162D455B5 /* KWContextNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 553E1A020E72BBE557B33C5F7D034321 /* KWContextNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B3EFDFDBFC4E5B58C48BDDE8557658C0 /* KWExampleSuiteBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = B9F2D3A91838FA59C3685E9C0632F206 /* KWExampleSuiteBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B403DCE2BC33643DF9A4845EF26723A6 /* RACLevelCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB13CE3662BC2592CC9281832CEBDA7 /* RACLevelCache.m */; };
 		B46DDFE96F0E4AABC9409A1D9102C1F5 /* RACBehaviorSubject.m in Sources */ = {isa = PBXBuildFile; fileRef = 534259CAF7549ABC8F488E4F763FB4BD /* RACBehaviorSubject.m */; };
 		B485BEBB380EBAE3CB9178B2146C0630 /* NSNotificationCenter+RACSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD222E490AC38014AEBC934294F07EE /* NSNotificationCenter+RACSupport.m */; };
 		B4B6C7E33DB42FD2AE57DCC51AEDBF14 /* LDBSnapshot.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9243888D7844AA6ADD75677E709ADCAA /* LDBSnapshot.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -402,6 +402,7 @@
 		B9161BFE6F0299FDF02F097ED8EC904E /* KWInequalityMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B021F4B8CB30AE9753A666690E8E35 /* KWInequalityMatcher.m */; };
 		BADD1C0CBBA414318AE79911C1936467 /* UIControl+RACSignalSupportPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 494EFC1C5074CE310D0FFC448D176698 /* UIControl+RACSignalSupportPrivate.m */; };
 		BB035E1FE93185F9259EF1DD9CC16F8A /* KWBeTrueMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1249AF2FD9EB5DD415FAB4F0FC4D31 /* KWBeTrueMatcher.m */; };
+		BB164996265E97F367075C430799F2B9 /* RACLevelCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 23FEFEC03F83D4BB8281314FC99A9F00 /* RACLevelCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BBDFA971B6684C6C51628040A84D14F3 /* RACErrorSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F4302FC4D96D710707E8F98BBDCB182 /* RACErrorSignal.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BC5546A066B3D2C811BD60243F0F5AEE /* env.h in Headers */ = {isa = PBXBuildFile; fileRef = 1788F087CB89A85979033B753EB58658 /* env.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BC947B8BE47D3AD0B2D25F8A779E73C2 /* KWUserDefinedMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DCA27B1F8721FF534BD3263E32B3C9 /* KWUserDefinedMatcher.m */; };
@@ -415,19 +416,21 @@
 		C056FD8ADE6D8D54E2F221FD59774979 /* KWExistVerifier.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CB9EA659C7B8B90565E348217D3265 /* KWExistVerifier.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0F3FDCF744B639B72563D4866806128 /* merger.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A17841CA06D33D004AB03508B44A3C0 /* merger.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C11D9DBBF85ACB8C9801B170AEC7F0B1 /* filter_policy.h in Headers */ = {isa = PBXBuildFile; fileRef = E7EEB132EBC9D5AEE004DBB3D8156AC9 /* filter_policy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C138FE64729275861683677573F9B407 /* ReactiveCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1836D7DE03055CF098DCF558C4E0C52F /* ReactiveCache.framework */; };
 		C15A07F0EAC150AED92F3C598EAC1843 /* KWInvocationCapturer.h in Headers */ = {isa = PBXBuildFile; fileRef = 628F367683E8498DB0FE4BCFD81BEB95 /* KWInvocationCapturer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C274FB8BDF1F247CEFBFAE9A19259D20 /* log_format.h in Headers */ = {isa = PBXBuildFile; fileRef = E46728CE2648B6BC0161427C96EE465F /* log_format.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C27E767F0C5C28B727001B9F2F5630F6 /* RACTuple.m in Sources */ = {isa = PBXBuildFile; fileRef = F69180AE4DA9D0D9B40B54C8228B5103 /* RACTuple.m */; };
 		C2F9A8B71949A643B4C16757CDB9EAA6 /* KWPendingNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F6ACC84F7C85B22E1BECAB08E42D84 /* KWPendingNode.m */; };
 		C3217811697384BE9FA9F9589CCA6A25 /* KWSuiteConfigurationBase.h in Headers */ = {isa = PBXBuildFile; fileRef = CE390EA0351556AAC08F4CE6247D10E8 /* KWSuiteConfigurationBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C3531590FC8C19F031BA711156BA8F82 /* KWProbePoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 1242E9D86186A212842220AD8CCFBBF0 /* KWProbePoller.m */; };
+		C35EA4D6FB74746927522BD7255DD772 /* leveldb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC039CC2DA74B2F44DE3286D96E4D643 /* leveldb.framework */; };
 		C4836B5381DBAAC9517A6BBAB56E3645 /* RACBlockTrampoline.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABEBF7935FAB391E1AF4DD98AB7F526 /* RACBlockTrampoline.m */; };
 		C496DAEF77BA190A8FDBF937F2E244BF /* slice.h in Headers */ = {isa = PBXBuildFile; fileRef = F1F7630A57E48F8EA2EFF5DE9139400A /* slice.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C49E84750CD5A4A05C125AE44109CB2A /* ReactiveLevelCache-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4741DEDCC70484776BE5E285636585DB /* ReactiveLevelCache-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C4B2A5D40B26A4355D21875AB676C6E6 /* RACSubscriptionScheduler.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E36312484CEF46358FA88EFCABAB427 /* RACSubscriptionScheduler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C59D9AD7E0E1211B356D42D053D4CF5E /* RACDelegateProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 007788BE889874D399B454402D36281A /* RACDelegateProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C5A8413E591F4244676E3DA213821A69 /* RACScheduler+Subclass.h in Headers */ = {isa = PBXBuildFile; fileRef = BDAFD1943BEC983548B951E4901E138A /* RACScheduler+Subclass.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C72CFCC57F078916CFF04271E874CF86 /* RACReturnSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F3B67ABA362939EDC202A6500B30428 /* RACReturnSignal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C7308F331A66B1191BCFB02D0FFD40F3 /* RACLevelCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB13CE3662BC2592CC9281832CEBDA7 /* RACLevelCache.m */; };
 		C787E53181B50F1272F4D2755FF5D712 /* NSData+RACSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C9CBBA09025D9138DC594B863646E0 /* NSData+RACSupport.m */; };
 		C7A3E1F157DAC1639FB646D161D16BDB /* KWHaveValueMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 465A8358787D579B86A91A712F97C0B7 /* KWHaveValueMatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C800B03CDB011C68C4CA9FEE0796DBAA /* KWExampleSuiteBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 025D1E25C73E82949540606661EE6884 /* KWExampleSuiteBuilder.m */; };
@@ -482,18 +485,17 @@
 		DE5BF61A771D2B55D36C2D45765F5CC2 /* table.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C2CFD2AA1D78132C505ED87A4491D37 /* table.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E022211844E729C2ABE05587E5549123 /* NSNumber+KiwiAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CD2BAF0857C52AB9EDFA835D2E1CC3F /* NSNumber+KiwiAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E058B31F77ED224A3E918CA35EAC5CAD /* KWMatchers.m in Sources */ = {isa = PBXBuildFile; fileRef = 6681C8DC9DD2AD6D46493DAECBFB8C2B /* KWMatchers.m */; };
-		E06817A5187EEC8517211F38264BFB9E /* Objective_LevelDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD83189433C9BEB98B64DBB1919308C5 /* Objective_LevelDB.framework */; };
 		E0D23DC028D7B1FC34B381F02AE40D7B /* ReactiveCache-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 87504ED186D6A0799A343D75EA0F54F9 /* ReactiveCache-dummy.m */; };
 		E1CFF55C840ED2E80F857A22A6F402E3 /* KWHaveMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D403C326DF11071B7867537FDE299685 /* KWHaveMatcher.m */; };
 		E24C052389602851DED4F973D0F5682E /* RACSignal+Operations.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B1D8F0BC82F6483FBC3DB82053BB8F1 /* RACSignal+Operations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E2E7162F3A259FE3709325D700CC69F9 /* RACCompoundDisposableProvider.d in Sources */ = {isa = PBXBuildFile; fileRef = 74C318E35B4E6DCAADBD8F454AC72E55 /* RACCompoundDisposableProvider.d */; };
 		E3EB8399881DE1119C5FB081D079BCB4 /* db_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AD2764570DD34251A837990CA1E6B1A /* db_impl.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		E3F475DF0D7A35CABFB6056FBC41EF54 /* ReactiveCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1836D7DE03055CF098DCF558C4E0C52F /* ReactiveCache.framework */; };
 		E4087E0BD61E0A8F83A0F7D4438A2F3D /* RACEagerSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5D701F1DCF69B68AB9C342F39E9FBE /* RACEagerSequence.m */; };
 		E42D80875E338197F2F427C4D240A3F1 /* RACDisposable.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6DF4E208AB223D875F65ECEE3C5907 /* RACDisposable.m */; };
 		E4490E6094B0A15E66C8180AD539590E /* NSObject+RACLifting.h in Headers */ = {isa = PBXBuildFile; fileRef = B16B8733E2AEC5FDC516DF190BCC2DF1 /* NSObject+RACLifting.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E45CF267D414F4A208D2DB10B644F759 /* KWBeEmptyMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F8085DB8ABAD40D181A21BE71FA934C /* KWBeEmptyMatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E49AB4856ED284515CC2F504BA7C79F4 /* RACSubscriptingAssignmentTrampoline.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E4B1FC92C4D37FFC9F3F2E40098FF6 /* RACSubscriptingAssignmentTrampoline.m */; };
+		E5113F86F09C6E7E340011699EC7C79F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EB1A7829C7106351687C27E63119BA /* Foundation.framework */; };
 		E5E9DE41FA9191489DADB577A42E6C5B /* dumpfile.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3F8216B2AB200C00415DD450CBA0393B /* dumpfile.cc */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E5EC8D36A9BD0A1B79F05AE7B7BE0559 /* RACKVOChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EA2902DCC1D2733EBBB691793935DC2 /* RACKVOChannel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E6062BA2FC3DB7666572D00FF74F6A6F /* RACEmptySignal.m in Sources */ = {isa = PBXBuildFile; fileRef = C963A44D77200C523B6A639A4C4F1B82 /* RACEmptySignal.m */; };
@@ -506,7 +508,6 @@
 		E82FFF572797428D8D6A2CDA20CE4FE4 /* RACSerialDisposable.h in Headers */ = {isa = PBXBuildFile; fileRef = 215EF9BFE2D353223EAFD1073628D8B7 /* RACSerialDisposable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E90E485AC8679349B124ED0E534F469B /* RACUnit.h in Headers */ = {isa = PBXBuildFile; fileRef = E2DE145E5F3F3076B8C5B609268062F8 /* RACUnit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E91C951145EDCD987EA4A0BB48B39371 /* NSFileHandle+RACSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = EE22FCA5B7577CD86C2221CBF6FC7D9E /* NSFileHandle+RACSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E924CB20B9EFE83DCEDB4FBD8D9F6528 /* RACLevelCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 23FEFEC03F83D4BB8281314FC99A9F00 /* RACLevelCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E93125B9B2A02262D6178BDDEF1003C7 /* port.h in Headers */ = {isa = PBXBuildFile; fileRef = B5957A3D95F16B0E7F77876EE6398ED3 /* port.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E998F0F10622A3CEA80994C40710B8C2 /* KWRespondToSelectorMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 35ACD9C913ED1666AA1C49BDF807150A /* KWRespondToSelectorMatcher.m */; };
 		E9C78454B515D838DB328C7DAE7DE8C2 /* RACUnarySequence.h in Headers */ = {isa = PBXBuildFile; fileRef = 47D767B5784514A1A9F9ACDFA8DE798B /* RACUnarySequence.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -515,6 +516,7 @@
 		EA8F76D656BDC5B17EE1254F7892EDDB /* RACSubscriber+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A8B25E09B47DBF2DCA04E7899BAAC1B3 /* RACSubscriber+Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		EAD77191C5830FB53AD1FE5FB315E463 /* port_stdcxx.h in Headers */ = {isa = PBXBuildFile; fileRef = 85F0591528C8E184B04E949602019903 /* port_stdcxx.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		EB1882D607F5E7CD5BE6533CB5585D9E /* RACEXTRuntimeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D600C6791C765BE6465B11E56E3386B9 /* RACEXTRuntimeExtensions.m */; };
+		EB4D165A5940E5E34ABB9CA9A50ECA01 /* ReactiveLevelCache-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D3B412B18486B01295027141D72456 /* ReactiveLevelCache-dummy.m */; };
 		ECC512B0A94669D1D058C307BFC41B90 /* UIImageView+Haneke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F931572BDD18F5B269215E5531329 /* UIImageView+Haneke.swift */; };
 		EE8FF0B036AFDFE0B132D19BE76CBD3C /* RACTestScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4278DEBB2D3B62CF0805219C0A92FE69 /* RACTestScheduler.m */; };
 		EEDE056012B63DECAC72AE81915043F6 /* NSValue+KiwiAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B2ACA11A6843FCEF649CFBBB53AAEF92 /* NSValue+KiwiAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -527,7 +529,6 @@
 		F3381CF7CB0D97EDE6F3049F1B0E1CB9 /* LDBWriteBatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AF34B0D895C0E44E881A251C4EC1E6B /* LDBWriteBatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F3B352A3879D55C3946AE39958882B26 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EB1A7829C7106351687C27E63119BA /* Foundation.framework */; };
 		F4119860C85F3B9D1A300DFD99C845EA /* NSObject+KiwiVerifierAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D3E75866784F9DB32173E1D2E5D63CF6 /* NSObject+KiwiVerifierAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F4244C4DF7ED2FC20A28B36F5466C2B1 /* ReactiveLevelCache-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D3B412B18486B01295027141D72456 /* ReactiveLevelCache-dummy.m */; };
 		F527D2DDE32C3161136D954ED31FF3E9 /* RACQueueScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C8C200DE732F033B867D22BC01C054 /* RACQueueScheduler.m */; };
 		F646780625D391E1CD34DFF22F58AAA9 /* UITextView+RACSignalSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C7F48D050CD2B3F3B59E7B1E94047F /* UITextView+RACSignalSupport.m */; };
 		F64F3AD413EF0A0454699E9316C151A0 /* format.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F148419CED347AE42D36FA41113C28 /* format.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -538,7 +539,7 @@
 		F7F5EC41150389AC1647D1D35F265175 /* RACCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 663F649B5D7FCFE2CB71F395048102C0 /* RACCommand.m */; };
 		F820A23EEC32CB94EDB69154A04B1678 /* UIAlertView+RACSignalSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 882F277534B602E152ACC0526616351C /* UIAlertView+RACSignalSupport.m */; };
 		F9365645888FED2FCADAB946040DA004 /* KWBeforeAllNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7ED706BC8E6342EA4AE978E6DE9A77 /* KWBeforeAllNode.m */; };
-		F937DD3485355CA9BF9CBE1B4A7F1557 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EB1A7829C7106351687C27E63119BA /* Foundation.framework */; };
+		F940E320C41C3BB12495B548FDE4C94F /* Objective_LevelDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD83189433C9BEB98B64DBB1919308C5 /* Objective_LevelDB.framework */; };
 		F95FE77D5B43D15E8967C24E16BB1F13 /* filter_block.h in Headers */ = {isa = PBXBuildFile; fileRef = B36CB9836F00D7BCB0363CF1E66E564D /* filter_block.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F977258B2443A36464B722EBB3421481 /* NSOrderedSet+RACSequenceAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 8736CDB43846746218248C4239591440 /* NSOrderedSet+RACSequenceAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F977C1F46B329A27DECE99510B787C72 /* RACReplaySubject.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A6472D0DC53E7CEA313A5EFB5F73A2F /* RACReplaySubject.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -558,26 +559,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0525E44592661774D080FB2540EAD447 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 438B238ACC7DF1178D1BCE1A31983146;
+			remoteInfo = ReactiveObjC;
+		};
 		102849C07BF6B699452999B94A5C55C8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 9307B7A119490930CF70393AB529AAC1;
 			remoteInfo = "leveldb-library";
-		};
-		28A571499BFB2D37EC14CB9906BF1827 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9307B7A119490930CF70393AB529AAC1;
-			remoteInfo = "leveldb-library";
-		};
-		357346F9BD416D0D5BD00BAFC2755B3F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3D25311D1F46350FE0582C4FACA9F732;
-			remoteInfo = "Objective-LevelDB";
 		};
 		3C27600A8866C6012234AA52D134596D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -607,7 +601,21 @@
 			remoteGlobalIDString = 438B238ACC7DF1178D1BCE1A31983146;
 			remoteInfo = ReactiveObjC;
 		};
+		614836980F6AEB92A5EC8F0E0A66D331 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9307B7A119490930CF70393AB529AAC1;
+			remoteInfo = "leveldb-library";
+		};
 		6D70D2E48F66FE168DD526AD1A8BAFA0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 39E737F1C307408DB8BFBE8BE8EA1594;
+			remoteInfo = ReactiveCache;
+		};
+		6DF378E25ED39044476C7A8BB4F83350 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -670,12 +678,12 @@
 			remoteGlobalIDString = 9307B7A119490930CF70393AB529AAC1;
 			remoteInfo = "leveldb-library";
 		};
-		B4D15BDFFC1C797F6318B6AE24783D89 /* PBXContainerItemProxy */ = {
+		B6D820D0E647BB2D70C6C7DCB2A0C932 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 39E737F1C307408DB8BFBE8BE8EA1594;
-			remoteInfo = ReactiveCache;
+			remoteGlobalIDString = 3D25311D1F46350FE0582C4FACA9F732;
+			remoteInfo = "Objective-LevelDB";
 		};
 		C26255948211F31EDC4421384CFBD0F6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1382,14 +1390,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		73B7D162BCE22F5BF346F89719C5C456 /* Frameworks */ = {
+		7046B8CFE3F57C61A897FE3781036696 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F937DD3485355CA9BF9CBE1B4A7F1557 /* Foundation.framework in Frameworks */,
-				5ED33D3D249FBB9FB064A32160D5A0AB /* leveldb.framework in Frameworks */,
-				E06817A5187EEC8517211F38264BFB9E /* Objective_LevelDB.framework in Frameworks */,
-				E3F475DF0D7A35CABFB6056FBC41EF54 /* ReactiveCache.framework in Frameworks */,
+				E5113F86F09C6E7E340011699EC7C79F /* Foundation.framework in Frameworks */,
+				C35EA4D6FB74746927522BD7255DD772 /* leveldb.framework in Frameworks */,
+				F940E320C41C3BB12495B548FDE4C94F /* Objective_LevelDB.framework in Frameworks */,
+				C138FE64729275861683677573F9B407 /* ReactiveCache.framework in Frameworks */,
+				4B81196A0606AE336A8BC64D5D448135 /* ReactiveObjC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2338,15 +2347,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		75AC3A100CC4773149694DC7232D2D22 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E924CB20B9EFE83DCEDB4FBD8D9F6528 /* RACLevelCache.h in Headers */,
-				C49E84750CD5A4A05C125AE44109CB2A /* ReactiveLevelCache-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9E6CA282644B39C490ED42B471EDCA48 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -2364,6 +2364,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				323850D4FF316632DF5CCA3E05B8A04B /* Pods-ReactiveLevelCache_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B452BC5D9A880AE9DF5720227CF563BB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB164996265E97F367075C430799F2B9 /* RACLevelCache.h in Headers */,
+				948C25D18109C3837F18B4C5C6E33F2A /* ReactiveLevelCache-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2686,19 +2695,20 @@
 		};
 		741A9C3A7A2AE2E5D4B9DB944CB33D78 /* ReactiveLevelCache */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F7130437AE0B9A8233FB1394AD366336 /* Build configuration list for PBXNativeTarget "ReactiveLevelCache" */;
+			buildConfigurationList = 4E90DE7D4135FD9F31D7765E8B3E4D30 /* Build configuration list for PBXNativeTarget "ReactiveLevelCache" */;
 			buildPhases = (
-				75AC3A100CC4773149694DC7232D2D22 /* Headers */,
-				34189BC65DB172FD9224676D729F8B64 /* Sources */,
-				73B7D162BCE22F5BF346F89719C5C456 /* Frameworks */,
-				2054794B010C023576F79E62482EB0DB /* Resources */,
+				B452BC5D9A880AE9DF5720227CF563BB /* Headers */,
+				CC8ED8622C9E0AB41FB7294E0279FD48 /* Sources */,
+				7046B8CFE3F57C61A897FE3781036696 /* Frameworks */,
+				3399A17CB952C21A13C19E2C651ECEA8 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B7552CCB3DC15D3D6FAD6D3CC3AB5106 /* PBXTargetDependency */,
-				9023AAA923B9CCEC7F0030B19AF43911 /* PBXTargetDependency */,
-				28B4786253DC0D9DADA875C535378E6C /* PBXTargetDependency */,
+				C503C38AC91973A78CB5CA4A5598A47C /* PBXTargetDependency */,
+				03A1DEC39DB33DE59DC5B02FB267652A /* PBXTargetDependency */,
+				35C1EC1706C0C7245CAD6292344F7F50 /* PBXTargetDependency */,
+				AD837196634F772E6C1691C45C578EE4 /* PBXTargetDependency */,
 			);
 			name = ReactiveLevelCache;
 			productName = ReactiveLevelCache;
@@ -2840,14 +2850,14 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2054794B010C023576F79E62482EB0DB /* Resources */ = {
+		205C164730E26650055033AF888157AE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		205C164730E26650055033AF888157AE /* Resources */ = {
+		3399A17CB952C21A13C19E2C651ECEA8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -3003,15 +3013,6 @@
 				39505DF6C694599E509E1B6C60958484 /* NSObject+KiwiVerifierAdditions.m in Sources */,
 				0BB33445FD5FB877ED9EF29C70A95EF4 /* NSProxy+KiwiVerifierAdditions.m in Sources */,
 				CA5D1E23D5BEFC0710DC5E3876617B79 /* NSValue+KiwiAdditions.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		34189BC65DB172FD9224676D729F8B64 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B403DCE2BC33643DF9A4845EF26723A6 /* RACLevelCache.m in Sources */,
-				F4244C4DF7ED2FC20A28B36F5466C2B1 /* ReactiveLevelCache-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3187,6 +3188,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CC8ED8622C9E0AB41FB7294E0279FD48 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7308F331A66B1191BCFB02D0FFD40F3 /* RACLevelCache.m in Sources */,
+				EB4D165A5940E5E34ABB9CA9A50ECA01 /* ReactiveLevelCache-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CDF309D55B3B7249C37BE425EEE07A63 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3244,6 +3254,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		03A1DEC39DB33DE59DC5B02FB267652A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ReactiveCache;
+			target = 39E737F1C307408DB8BFBE8BE8EA1594 /* ReactiveCache */;
+			targetProxy = 6DF378E25ED39044476C7A8BB4F83350 /* PBXContainerItemProxy */;
+		};
 		103EF2AEC2133DA367371975C5B76932 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ReactiveLevelCache;
@@ -3262,17 +3278,17 @@
 			target = 741A9C3A7A2AE2E5D4B9DB944CB33D78 /* ReactiveLevelCache */;
 			targetProxy = 8A4DDBB9C5D2C65B29E10DAB79A2C75E /* PBXContainerItemProxy */;
 		};
-		28B4786253DC0D9DADA875C535378E6C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "leveldb-library";
-			target = 9307B7A119490930CF70393AB529AAC1 /* leveldb-library */;
-			targetProxy = 28A571499BFB2D37EC14CB9906BF1827 /* PBXContainerItemProxy */;
-		};
 		2D042BEEF80907A017B781FB6FA1CF32 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ReactiveObjC;
 			target = 438B238ACC7DF1178D1BCE1A31983146 /* ReactiveObjC */;
 			targetProxy = 5EBEE6A8756450F3B26EF8221322B3B2 /* PBXContainerItemProxy */;
+		};
+		35C1EC1706C0C7245CAD6292344F7F50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ReactiveObjC;
+			target = 438B238ACC7DF1178D1BCE1A31983146 /* ReactiveObjC */;
+			targetProxy = 0525E44592661774D080FB2540EAD447 /* PBXContainerItemProxy */;
 		};
 		3DEE71069CF666D38A60744628A9A648 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3316,12 +3332,6 @@
 			target = D1C8D4B4C9EA26E017D8E80B5D65C00A /* HanekeObjc */;
 			targetProxy = CF82FC8067C4D9E5C3BE0BAE5F3D888E /* PBXContainerItemProxy */;
 		};
-		9023AAA923B9CCEC7F0030B19AF43911 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = ReactiveCache;
-			target = 39E737F1C307408DB8BFBE8BE8EA1594 /* ReactiveCache */;
-			targetProxy = B4D15BDFFC1C797F6318B6AE24783D89 /* PBXContainerItemProxy */;
-		};
 		92F1DEAB2421790EA79D38B6BE49352C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ReactiveCache;
@@ -3346,17 +3356,23 @@
 			target = B37683377F02B74EA7D1CB5AB2617FFF /* AltHanekeSwift */;
 			targetProxy = 56D55143699C8D5F477294A97C57C5C9 /* PBXContainerItemProxy */;
 		};
+		AD837196634F772E6C1691C45C578EE4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "leveldb-library";
+			target = 9307B7A119490930CF70393AB529AAC1 /* leveldb-library */;
+			targetProxy = 614836980F6AEB92A5EC8F0E0A66D331 /* PBXContainerItemProxy */;
+		};
 		AD965DDC6AB5FE51808DCFACA3F348EA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ReactiveObjC;
 			target = 438B238ACC7DF1178D1BCE1A31983146 /* ReactiveObjC */;
 			targetProxy = D1FBDB94085BEE2A8CE5C6B4073869EC /* PBXContainerItemProxy */;
 		};
-		B7552CCB3DC15D3D6FAD6D3CC3AB5106 /* PBXTargetDependency */ = {
+		C503C38AC91973A78CB5CA4A5598A47C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Objective-LevelDB";
 			target = 3D25311D1F46350FE0582C4FACA9F732 /* Objective-LevelDB */;
-			targetProxy = 357346F9BD416D0D5BD00BAFC2755B3F /* PBXContainerItemProxy */;
+			targetProxy = B6D820D0E647BB2D70C6C7DCB2A0C932 /* PBXContainerItemProxy */;
 		};
 		DA4C1738732AAC1135B3B3591D6D8D37 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3826,6 +3842,37 @@
 			};
 			name = Release;
 		};
+		991A29979F94913FF6EC6CD8BAB898FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CDB39EC941C1C26778B7097510BA431 /* ReactiveLevelCache.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ReactiveLevelCache/ReactiveLevelCache-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ReactiveLevelCache/ReactiveLevelCache-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ReactiveLevelCache/ReactiveLevelCache.modulemap";
+				PRODUCT_MODULE_NAME = ReactiveLevelCache;
+				PRODUCT_NAME = ReactiveLevelCache;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		AC301F2ADE9BA9A4960477391B63763A /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2F373ABC7F0362DA57ABD14050621D4B /* Objective-LevelDB.release.xcconfig */;
@@ -3954,7 +4001,7 @@
 			};
 			name = Debug;
 		};
-		D304B2D0163EF21D97C4F1F0BDB2D23A /* Release */ = {
+		D2E337C50B66D542686D41BBBA7E088A /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 80CFAD5D76C4632C9F501D8778E2EE00 /* ReactiveLevelCache.release.xcconfig */;
 			buildSettings = {
@@ -4010,37 +4057,6 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		F48B71D6190C554C5538B50F6454F61E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8CDB39EC941C1C26778B7097510BA431 /* ReactiveLevelCache.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/ReactiveLevelCache/ReactiveLevelCache-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ReactiveLevelCache/ReactiveLevelCache-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/ReactiveLevelCache/ReactiveLevelCache.modulemap";
-				PRODUCT_MODULE_NAME = ReactiveLevelCache;
-				PRODUCT_NAME = ReactiveLevelCache;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -4187,6 +4203,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		4E90DE7D4135FD9F31D7765E8B3E4D30 /* Build configuration list for PBXNativeTarget "ReactiveLevelCache" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				991A29979F94913FF6EC6CD8BAB898FE /* Debug */,
+				D2E337C50B66D542686D41BBBA7E088A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C819B807FA028C93A0F12CB889691307 /* Build configuration list for PBXNativeTarget "AltHanekeSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -4210,15 +4235,6 @@
 			buildConfigurations = (
 				13D52BC30DE571C531A848E40FC54ED3 /* Debug */,
 				1EE71A9BE3AA67BAFC1194AA3C28BAC4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F7130437AE0B9A8233FB1394AD366336 /* Build configuration list for PBXNativeTarget "ReactiveLevelCache" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F48B71D6190C554C5538B50F6454F61E /* Debug */,
-				D304B2D0163EF21D97C4F1F0BDB2D23A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
